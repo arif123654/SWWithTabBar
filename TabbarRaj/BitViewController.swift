@@ -12,34 +12,35 @@ import AVFoundation
 
 class BitViewController: UIViewController {
     //MARK:- Utilities
-    
-    
-    
     let vc = AVPlayerViewController()
+    
+    let aci:UIActivityIndicatorView = UIActivityIndicatorView()
     //    var avPlayer:AVPlayer?
     @IBOutlet weak var viewTableView: UITableView!
     var cache = NSCache<NSString, UIImage>()
     var img = [UIImage]()
     var NURL = [URL]()
     var surl = [ "https://www.videvo.net/videvo_files/converted/2016_06/videos/160323_15_PokerTracking1_1080p.mov45606.mp4", "https://www.videvo.net/videvo_files/converted/2015_02/videos/Woodpile_01_Videvo.mov56517.mp4", "https://www.videvo.net/videvo_files/converted/2016_01/videos/Forest_15_2_Videvo.mov92730.mp4", "https://www.videvo.net/videvo_files/converted/2013_09/videos/MoonandSeaHDFInalRenderH264.mov16284.mp4", "https://www.videvo.net/videvo_files/converted/2015_08/videos/Evening_landing.mp412257.mp4" ]
+    
+    
+    
     //MARK:- Init
     override func viewDidLoad() {
         super.viewDidLoad()
         viewTableView.delegate = self
         viewTableView.dataSource = self
         viewTableView.rowHeight = 350
-        
+        viewTableView.register(UINib(nibName: "cell2", bundle: nil), forCellReuseIdentifier: "cell")
         //MARK:- Caching images
         if cache.object(forKey: "thumbnail") == nil {
             for n in surl{
                 cache.setObject(generateThumbnail(path: n)!, forKey: "thumbnail")
                 self.img.append(generateThumbnail(path: n)!)
-                
             }
         }
-        activityIndicator()
-        //print(NURL.self)
     }
+    
+    
     //MARK:- Thubmnail Generator
     func createThumbnailOfVideoFromRemoteUrl(url: String) -> UIImage? {
         let asset = AVAsset(url: URL(string: url)!)
@@ -74,15 +75,6 @@ class BitViewController: UIViewController {
             return nil
         }
     }
-    var indicator = UIActivityIndicatorView()
-    
-    func activityIndicator() {
-        indicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
-        indicator.style = UIActivityIndicatorView.Style.gray
-        indicator.center = self.view.center
-        self.view.addSubview(indicator)
-    }
-    
 }
 
 
@@ -117,4 +109,3 @@ extension BitViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
 }
-

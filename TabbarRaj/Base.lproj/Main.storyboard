@@ -167,24 +167,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="K5l-UV-kcR" id="bzL-7h-Kx9">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="57"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hg9-aw-FEn">
-                                                    <rect key="frame" x="75" y="4" width="147" height="48"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2wx-re-UsY">
-                                                    <rect key="frame" x="20" y="4" width="47" height="48"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
-                                            </subviews>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="cellImageView" destination="2wx-re-UsY" id="NFs-cr-25d"/>
-                                            <outlet property="cellLabel" destination="Hg9-aw-FEn" id="AYN-LP-CeM"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -198,7 +181,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="jw2-M8-dWq"/>
                     <connections>
-                        <outlet property="tableView" destination="rdJ-rm-33I" id="5FO-pq-RCz"/>
+                        <outlet property="tableView" destination="rdJ-rm-33I" id="4Wc-mk-Dhl"/>
+                        <outlet property="tttableView" destination="rdJ-rm-33I" id="Tli-qe-m22"/>
                         <segue destination="ogg-ev-Rt4" kind="custom" identifier="tble" customClass="SWRevealViewControllerSeguePushController" id="Qa0-B9-KJe"/>
                     </connections>
                 </viewController>
